@@ -8,8 +8,8 @@ import org.testng.Assert;
 import utils.BrowserUtils;
 
 public class BankLoginPage {
-    public BankLoginPage(WebDriver driver){
-        PageFactory.initElements(driver,this); // it does same logic of driver.findElement
+    public BankLoginPage(WebDriver driver) {
+        PageFactory.initElements(driver, this); // it does same logic of driver.findElement
 
     }
 
@@ -27,22 +27,22 @@ public class BankLoginPage {
     @FindBy(xpath = "//button[.='Home']")
     WebElement homeBtn;
 
-    public void LoginPageComponentValidation(String expectedHeader){
+    public void LoginPageComponentValidation(String expectedHeader) {
 
-        Assert.assertEquals(BrowserUtils.getText(header),expectedHeader);
+        Assert.assertEquals(BrowserUtils.getText(header), expectedHeader);
         Assert.assertTrue(customerLogin.isDisplayed() && customerLogin.isEnabled());
         Assert.assertTrue(managerLogin.isDisplayed() && managerLogin.isEnabled());
     }
 
-    public void clickManagerButton(){
+    public void clickManagerButton() {
         managerLogin.click();
     }
 
-    public void clickCustomerLoginBtn(){
+    public void clickCustomerLoginBtn() {
         customerLogin.click();
     }
 
-    public void clickHomeBtn(){
+    public void clickHomeBtn() {
         homeBtn.click();
     }
 

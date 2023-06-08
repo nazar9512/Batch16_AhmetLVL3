@@ -11,17 +11,10 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class BankCustomerTest {
+public class BankCustomerTest extends BankTestBase{
 
     @Test
-    public void validateCustomerPageFunctionality() throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        WebDriver driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.navigate().to("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login");
+    public void validateCustomerPageFunctionality()  throws InterruptedException {
 
         BankLoginPage bankLoginPage = new BankLoginPage(driver);
         bankLoginPage.clickManagerButton();
@@ -34,14 +27,10 @@ public class BankCustomerTest {
         bankLoginPage.clickCustomerLoginBtn();
 
         BankCustomerPage bankCustomerPage = new BankCustomerPage(driver);
-        bankCustomerPage.yourNameFunctionality("Nazar Fedyk","Welcome Nazar Fedyk !!");
+        bankCustomerPage.loginFunctionality("Nazar Fedyk","Welcome Nazar Fedyk !!");
         bankCustomerPage.depositFunctionality("500","Deposit Successful");
         bankCustomerPage.withdrawnFunctionality("300","Transaction successful");
         bankCustomerPage.transactionsFunctionality();
-            driver.quit();
-
-
-
 
     }
 }
